@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #344b68;
+}
+
+header {
+    background-color: #395676;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    height: 10vh;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.botonera{
+    display: flex;
+    width: 20vw;
+    justify-content: center;
+    background-color: #202f42;
+    height: 90vh;
+}
+
+.div-botonera{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.div-botonera button{
+    margin-top: 45px;
+}
+
+button {
+    --button_radius: 0.75em;
+    --button_color: #e8e8e8;
+    --button_outline_color: #000000;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+}
+  
+.button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+}
+  
+button:hover .button_top {
+    transform: translateY(-0.33em);
+}
+  
+button:active .button_top {
+    transform: translateY(0);
+}
+
+#directivos{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80vw;
+}
+
+#especialidades{
+    display: none;
+}
+
+#novedades{
+    display: none;
+}
+
+.opciones{
+    margin-top: 2vh;
+}
+
+.opciones button{
+    margin-left: 10px;
+}
+
+.delete_d{
+    margin-top: 10vh;
+    background-color: #0000006e;
+    width: 30vw;
+    height: 25vh;
+    padding: 2vh;
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    color: wheat;
+}
+.delete_d form{
+    display: flex;
+    flex-direction: column;
+}
+.delete_d form label{
+    margin-top:2vh;
+}
+
+.delete_d form input{
+    width: 20vw;
+    padding: 10px;
+    border-radius: 0.5rem;
+    padding: 15px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9c9c9c60;
+    outline: 2px solid #707070;
+    color: wheat;
+}
+.submit{
+    margin-top: 4vh;
+}
+.form_delete select {
+    margin-top: 2vh;
+    padding: 1vh;
+    color: white;
+    background-color: #9c9c9c60;
+}
+
+.form_delete select option{
+    background-color: #525151be;
+}

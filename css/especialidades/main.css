@@ -67,7 +67,7 @@ input[name="especialidad"]{
     gap: 10px;
     cursor: pointer;
     transition: color .5s ease;
-    transition: all .3s ease-out;
+    transition: background-color .3s ease-out;
 }
 .cont_btn_epecialidad .especialidad:hover{
     box-shadow: -1px 2px 10px black;
@@ -258,33 +258,4 @@ input[name="especialidad"]{
         width: 250px;
         height: 170px;
     }
-}
-
-.hidden{
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease-in-out;
-}
-
-.show{
-    opacity: 1;
-    transform: translateY(0px);
-
-}
-
-a.hidden:nth-child(odd){
-    transform: translateX(-50px);
-}
-a.hidden:nth-child(even){
-    transform: translateX(50px);
-}
-
-a.show:nth-child(even){
-    opacity: 1;
-    transform: translateX(0px);
-}
-
-a.show:nth-child(odd){
-    opacity: 1;
-    transform: translateX(0px);
 }

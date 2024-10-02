@@ -18,14 +18,11 @@
 }
 .contenedor__carrusel .carrusel{
     position: absolute;
-    background-color: transparent;
+    background-color: #151515;
     overflow: hidden;
-    height: 100%;
-    
 }
 .carrusel .contenedor__items{
-    height: 93.7%;
-    background-color: transparent;
+    height: 100%;
     display: flex;
 }
 .carrusel .contenedor__items .items{
@@ -228,17 +225,4 @@
     .cont_fondo_slider .cont_slider img{
         left: 50%;
     }
-}
-
-.hidden{
-    opacity: 0;
-    transform: translateY(100px);
-    transition: all 0.5s ease-in-out;
-    backdrop-filter: blur(20px);
-}
-
-.show{
-    opacity: 1;
-    transform: translateY(0px);
-    backdrop-filter: blur(0px);
 }
