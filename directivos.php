@@ -30,7 +30,7 @@
             <h2>Nuestros Directivos</h2>
         </div>
 
-        <section class="cuerpo">
+        <section class="cuerpo hidden">
             <?php
                 include "components/funciones.php";
                 echo get_autoridades();
@@ -40,4 +40,16 @@
 
     </body>
     </html>
+    <script>
+                const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('show')
+                }
+            })
+        })
+        const hiddenElements = document.querySelectorAll('.hidden')
+        hiddenElements.forEach((el) => observer.observe(el))
+    </script>
     <script src="js/navegacion.js"></script>
+    
