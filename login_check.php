@@ -1,6 +1,5 @@
 <?php
-
-
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -16,14 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $_POST['username'];
     $pass = $_POST['password'];
 
-    $sql = "SELECT * FROM admin WHERE name='$user' ";
+    $sql = "SELECT * FROM admin WHERE user='$user' ";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if ($pass === $row['password']) {
+            $_SESSION['status'] = "logued";
             header("Location: admin.php");
         } else {
+            $_SESSION['status'] = "unlogued";
             header("Location: index.php");
             
         }
