@@ -84,3 +84,34 @@ function show_update_n(){
     upd.style.display = "flex"; 
 }
 
+
+
+function show_insert_e(){
+    var del = document.getElementById("delete_e");
+    var upd = document.getElementById("update_e");
+    var crt = document.getElementById("insert_e");
+    crt.style.display = "flex";
+    del.style.display = "none"; 
+    upd.style.display = "none"; 
+}
+
+function show_delete_e() {
+    var del = document.getElementById("delete_e");
+    var upd = document.getElementById("update_e");
+    var crt = document.getElementById("insert_e");
+    del.style.display = "flex"; 
+    crt.style.display = "none";
+    upd.style.display = "none"; 
+}
+
+function show_update_e(){
+    var del = document.getElementById("delete_e");
+    var upd = document.getElementById("update_e");
+    var crt = document.getElementById("insert_e");
+    crt.style.display = "none"; 
+    del.style.display = "none"; 
+    upd.style.display = "flex"; 
+}
+
+
+

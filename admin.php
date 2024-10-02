@@ -31,11 +31,10 @@
                     <span class="button_top" onclick=show_directivos() > Directivos </span>
                 </button>
 
-                <!--  
+                
                 <button>
                     <span class="button_top" onclick=show_especialidades() > Especialidades </span>
                 </button>
-                 -->
 
                 <button>
                     <span class="button_top" onclick=show_novedades() > Novedades </span>
@@ -264,7 +263,79 @@
 
 
             <div id="especialidades" >
-                <h1>Placeholder</h1>
+                <div class="opciones">
+
+                    <button onclick="show_update_e()">
+                        <span class="button_top" > Update </span>
+                    </button>
+
+                    <button onclick="show_delete_e()">
+                        <span class="button_top" > Delete </span>
+                    </button>
+
+                    <button onclick="show_insert_e()">
+                        <span class="button_top" > insert </span>
+                    </button>
+                </div>
+                    
+                <div class="cambios">
+                    <div class="insert_e update_d" id="insert_e">
+                        <form class="form_update" action="procesar_formulario.php" method="POST">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+
+                            <label for="descripcion">Descripción:</label>
+                            <textarea id="descripcion" name="descripcion" rows="4" cols="50" required></textarea>
+                            <br>
+
+                            <label for="especialidad">Especialidad:</label>
+                            <select id="especialidad" name="especialidad" required>
+                                <option value="">Seleccione una especialidad</option>
+                                <option value="programación">Programación</option>
+                                <option value="electrónica">Electrónica</option>
+                            </select>
+
+                            <button type="submit" class="btn">Guardar Especialidad</button>
+                        </form>
+                    </div>
+                    <div class="update_e" id="update_e">
+                        
+                    </div>
+                    <div class="delete_e" id="delete_e">
+                    <?php
+                                $servername = "localhost";
+                                $username = "root";
+                                $password = "";
+                                $dbname = "sitio_web_institucional";
+
+                                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                                if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                }
+
+                                $sql = "SELECT id, nombre, descripcion, especialidad FROM especialidades";
+                                $result = $conn->query($sql);
+                            ?>
+                            
+                            <form class="form_delete" action="delete_especialidad.php" method="POST">
+                                <label for="especialidad">Elige una seccion para borrar:</label>
+                                <select name="especialidad_id" id="especialidad" required>
+                                    <?php
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . "</option>";
+                                        }
+                                    } else {
+                                        echo "<option value=''>No hay opciones disponibles</option>";
+                                    }
+                                    ?>
+                                </select>
+                                <br>
+                                <input type="submit" value="Borrar">
+                            </form>
+                    </div>
+                </div>
             </div>
             <div id="novedades">
                 <div class="opciones">

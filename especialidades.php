@@ -46,7 +46,8 @@
                 </div>
                 <h3>Programación</h3>   
                 <div class="cont-icon">
-                    <img src="img/icon-prog.png" alt="">
+                    <img src="./img/icon-prog.png">
+                    <img src="./img/torres.png" alt="">
                 </div>
             </label>
 
@@ -59,7 +60,7 @@
                 </div>
                 <h3>Electronica</h3>
                 <div class="cont-icon">
-                    <img src="img/icon-elec.png" alt="">
+                    <img src="./img/icon-elec.png">
                 </div>
             </label>            
         </div>
@@ -82,7 +83,7 @@
                         <h3>Objetivo</h3>
                         <p>La carrera de programación se centra en la adquisición de habilidades para desarrollar software y aplicaciones informáticas. Los estudiantes aprenden a programar en diferentes lenguajes de programación, como Javascript, Python, C++, entre otros. Se enfatiza la resolución de problemas, la lógica de programación y el diseño de algoritmos. Los graduados están preparados para trabajar como programadores, desarrolladores de software o en roles relacionados en la industria de la tecnología.</p>
                     </div>
-                    <img src="" alt="imagen de la especialidad">
+                    <img src="./img/icon-prog.png" alt="imagen de la especialidad">
                 </section>
                 <section id="materiasProg">
                     <div class="cont">
@@ -126,36 +127,43 @@
                         </div>
                     </div>
                 </section>
-                <section class="hidden" id="perfilProg">
-                    <div class="cont">
-                        <h3>Perfil academico del/a egresado/a</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam molestiae alias nulla animi in cum officiis libero suscipit veniam quam ex voluptas facere accusantium deleniti dolor totam, a dolorem distinctio! Perferendis voluptatem distinctio, ipsam ad hic dolorem illum ducimus vitae rem reiciendis provident labore omnis, ab officia magni. Nesciunt officiis fuga explicabo pariatur qui ducimus temporibus sint est fugiat vitae cumque, beatae rerum, repellendus sed id in consequatur minus quia iure, quibusdam sunt aperiam nulla omnis. Eos, obcaecati minus.</p>
-                    </div>
-                </section>
-                <section class="hidden" id="planEstProg">
-                    <div class="cont">
-                        <h3>Estructura del plan de estudio</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam molestiae alias nulla animi in cum officiis libero suscipit veniam quam ex voluptas facere accusantium deleniti dolor totam, a dolorem distinctio! Perferendis voluptatem distinctio, ipsam ad hic dolorem illum ducimus vitae rem reiciendis provident labore omnis, ab officia magni. Nesciunt officiis fuga explicabo pariatur qui ducimus temporibus sint est fugiat vitae cumque, beatae rerum, repellendus sed id in consequatur minus quia iure, quibusdam sunt aperiam nulla omnis. Eos, obcaecati minus.</p>
-                    </div>
-                </section>
-                <section class="hidden" id="DiOrProg">
-                    <div class="cont">
-                        <h3>Diseño y organizacion curricular</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam molestiae alias nulla animi in cum officiis libero suscipit veniam quam ex voluptas facere accusantium deleniti dolor totam, a dolorem distinctio! Perferendis voluptatem distinctio, ipsam ad hic dolorem illum ducimus vitae rem reiciendis provident labore omnis, ab officia magni. Nesciunt officiis fuga explicabo pariatur qui ducimus temporibus sint est fugiat vitae cumque, beatae rerum, repellendus sed id in consequatur minus quia iure, quibusdam sunt aperiam nulla omnis. Eos, obcaecati minus.</p>
-                    </div>
-                </section>
-                <section class="hidden" id="ContMiniProg">
-                    <div class="cont">
-                        <h3>Contenidos minimos</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam molestiae alias nulla animi in cum officiis libero suscipit veniam quam ex voluptas facere accusantium deleniti dolor totam, a dolorem distinctio! Perferendis voluptatem distinctio, ipsam ad hic dolorem illum ducimus vitae rem reiciendis provident labore omnis, ab officia magni. Nesciunt officiis fuga explicabo pariatur qui ducimus temporibus sint est fugiat vitae cumque, beatae rerum, repellendus sed id in consequatur minus quia iure, quibusdam sunt aperiam nulla omnis. Eos, obcaecati minus.</p>
-                    </div>
-                </section>
-                <section class="hidden" id="proyectosProg">
-                    <div class="cont">
-                        <h3>Proyectos realizados</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam molestiae alias nulla animi in cum officiis libero suscipit veniam quam ex voluptas facere accusantium deleniti dolor totam, a dolorem distinctio! Perferendis voluptatem distinctio, ipsam ad hic dolorem illum ducimus vitae rem reiciendis provident labore omnis, ab officia magni. Nesciunt officiis fuga explicabo pariatur qui ducimus temporibus sint est fugiat vitae cumque, beatae rerum, repellendus sed id in consequatur minus quia iure, quibusdam sunt aperiam nulla omnis. Eos, obcaecati minus.</p>
-                    </div>
-                </section>
+                <div id="perfilProg">
+
+                </div>
+                <?php
+
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "sitio_web_institucional";
+
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                    if ($conn->connect_error) {
+                        die("Error de conexión: " . $conn->connect_error);
+                    }
+
+                    $sql = "SELECT * FROM especialidades WHERE especialidad = 'programacion' ";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        $results = $result->fetch_all(MYSQLI_ASSOC);
+                        foreach ($results as $row) {
+                            echo <<< espe
+                            <section class="hidden" id="planEstProg">
+                                <div class="cont">
+                                    <h3> {$row["nombre"]} </h3>
+                                    <p>{$row["descripcion"]}</p>
+                                </div>
+                            </section>
+                            espe;
+                        }
+                    } else {
+                        echo "No hay resultados.";
+                    }
+
+                    $conn->close();
+                ?>
              </div>
         </div>
         <div class="contenedor_electronica">
@@ -174,7 +182,7 @@
                         <h3>Objetivo</h3>
                         <p>La carrera de electrónica se enfoca en la electrónica y la tecnología de circuitos electrónicos. Los estudiantes aprenden a diseñar, construir y reparar dispositivos electrónicos, circuitos y sistemas. Se enseñan conceptos de electrónica analógica y digital, así como también sistemas de control y automatización. Los graduados están capacitados para trabajar en la industria de la electrónica, en mantenimiento de equipos electrónicos, desarrollo de circuitos y sistemas, o como técnicos de reparación de dispositivos electrónicos.</p>
                     </div>
-                    <img src="" alt="imagen de la especialidad">
+                    <img src="./img/icon-elec.png" alt="imagen de la especialidad">
                 </section>
                 <section class="hidden" id="materiasElec">
                     <div class="cont">
@@ -218,36 +226,40 @@
                     </div>
 
                 </section>
-                <section class="hidden" id="perfilElec">
-                    <div class="cont">
-                        <h3>Perfil academico del/a egresado/a</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam molestiae alias nulla animi in cum officiis libero suscipit veniam quam ex voluptas facere accusantium deleniti dolor totam, a dolorem distinctio! Perferendis voluptatem distinctio, ipsam ad hic dolorem illum ducimus vitae rem reiciendis provident labore omnis, ab officia magni. Nesciunt officiis fuga explicabo pariatur qui ducimus temporibus sint est fugiat vitae cumque, beatae rerum, repellendus sed id in consequatur minus quia iure, quibusdam sunt aperiam nulla omnis. Eos, obcaecati minus.</p>
-                    </div>
-                </section>
-                <section class="hidden" id="planEstElec">
-                    <div class="cont">
-                        <h3>Estructura del plan de estudio</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam molestiae alias nulla animi in cum officiis libero suscipit veniam quam ex voluptas facere accusantium deleniti dolor totam, a dolorem distinctio! Perferendis voluptatem distinctio, ipsam ad hic dolorem illum ducimus vitae rem reiciendis provident labore omnis, ab officia magni. Nesciunt officiis fuga explicabo pariatur qui ducimus temporibus sint est fugiat vitae cumque, beatae rerum, repellendus sed id in consequatur minus quia iure, quibusdam sunt aperiam nulla omnis. Eos, obcaecati minus.</p>
-                    </div>
-                </section>
-                <section class="hidden" id="DiOrElec">
-                    <div class="cont">
-                        <h3>Diseño y organizacion curricular</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam molestiae alias nulla animi in cum officiis libero suscipit veniam quam ex voluptas facere accusantium deleniti dolor totam, a dolorem distinctio! Perferendis voluptatem distinctio, ipsam ad hic dolorem illum ducimus vitae rem reiciendis provident labore omnis, ab officia magni. Nesciunt officiis fuga explicabo pariatur qui ducimus temporibus sint est fugiat vitae cumque, beatae rerum, repellendus sed id in consequatur minus quia iure, quibusdam sunt aperiam nulla omnis. Eos, obcaecati minus.</p>
-                    </div>
-                </section>
-                <section class="hidden" id="ContMiniElec">
-                    <div class="cont">
-                        <h3>Contenidos minimos</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam molestiae alias nulla animi in cum officiis libero suscipit veniam quam ex voluptas facere accusantium deleniti dolor totam, a dolorem distinctio! Perferendis voluptatem distinctio, ipsam ad hic dolorem illum ducimus vitae rem reiciendis provident labore omnis, ab officia magni. Nesciunt officiis fuga explicabo pariatur qui ducimus temporibus sint est fugiat vitae cumque, beatae rerum, repellendus sed id in consequatur minus quia iure, quibusdam sunt aperiam nulla omnis. Eos, obcaecati minus.</p>
-                    </div>
-                </section>
-                <section class="hidden" id="proyectosElec">
-                    <div class="cont">
-                        <h3>Proyectos realizados</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam molestiae alias nulla animi in cum officiis libero suscipit veniam quam ex voluptas facere accusantium deleniti dolor totam, a dolorem distinctio! Perferendis voluptatem distinctio, ipsam ad hic dolorem illum ducimus vitae rem reiciendis provident labore omnis, ab officia magni. Nesciunt officiis fuga explicabo pariatur qui ducimus temporibus sint est fugiat vitae cumque, beatae rerum, repellendus sed id in consequatur minus quia iure, quibusdam sunt aperiam nulla omnis. Eos, obcaecati minus.</p>
-                    </div>
-                </section>
+                
+                <?php
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "sitio_web_institucional";
+
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                    if ($conn->connect_error) {
+                        die("Error de conexión: " . $conn->connect_error);
+                    }
+
+                    $sql = "SELECT * FROM especialidades WHERE especialidad = 'electronica' ";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        $results = $result->fetch_all(MYSQLI_ASSOC);
+                        foreach ($results as $row) {
+                            echo <<< espe
+                            <section class="hidden" id="planEstProg">
+                                <div class="cont">
+                                    <h3> {$row["nombre"]} </h3>
+                                    <p>{$row["descripcion"]}</p>
+                                </div>
+                            </section>
+                            espe;
+                        }
+                    } else {
+                        echo "No hay resultados.";
+                    }
+
+                    $conn->close();
+                    ?>
              </div>
         </div>
 
