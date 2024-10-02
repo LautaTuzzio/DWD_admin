@@ -26,7 +26,7 @@
     <!-- Cuerpo de la pagina -->
     <main>
         <!-- En esta parte se pondra un carrusel de imagenes -->
-        <div class="contenedor__carrusel">
+        <div class="contenedor__carrusel" >
             <div class="carrusel">
                 <div class="contenedor__items">
                     <?php
@@ -71,7 +71,7 @@
                 </div>
 
                 <!-- Zona para cargar la información de la escuela -->
-                <div class="cont_info">
+                <div class="cont_info hidden">
                     <p>El edificio se construyó sobre los terrenos donados por la Sra. Elisa Schulze de Ader y Ana Elisa
                         Ader de Grümbaum, esposa e hija de don Bernardo Ader,
                         ya fallecido, y que fueron aceptados por la Municipalidad mediante la Ordenanza N°644 del año
@@ -130,5 +130,14 @@
             song = 1
         }
     }
-    document.getElementById("son").addEventListener('click',sonido,true);
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('show')
+            }
+        })
+    })
+    const hiddenElements = document.querySelectorAll('.hidden')
+    hiddenElements.forEach((el) => observer.observe(el))
 </script>
