@@ -110,6 +110,7 @@
 .contenedor_carta.reverse{
     flex-direction: row-reverse;
 }
+
 .contenedor_carta.reverse img{
     left: -30px;
 }
@@ -157,4 +158,31 @@
     .contenedor_carta.reverse .informacion .titulo{
         justify-content: space-evenly;
     }
+}
+
+.hidden:nth-child(odd){
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.5s ease-in-out;
+    backdrop-filter: blur(20px);
+}
+
+.show:nth-child(odd){
+    opacity: 1;
+    transform: translateY(0px);
+    backdrop-filter: blur(0px);
+}
+
+
+.hidden:nth-child(even){
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.5s ease-in-out;
+    backdrop-filter: blur(20px);
+}
+
+.show:nth-child(even){
+    opacity: 1;
+    transform: translateY(0px);
+    backdrop-filter: blur(0px);
 }

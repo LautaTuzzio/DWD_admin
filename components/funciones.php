@@ -48,7 +48,7 @@ function get_autoridades(){
             $clase = "contenedor_carta reverse";
         }
         $plantilla = $plantilla.'
-        <div class="'.$clase.'">        
+        <div class="hidden '.$clase.'">        
             <picture class="imagen">
                 <img src="'.$imagen.'" alt="imagen">
             </picture>
