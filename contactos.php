@@ -45,11 +45,10 @@
                         </div>
                     </div>
                 </section>
-                <form action="components/formulario.php" method="post">
-                    <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre completo">
-                    <input type="email" name="mail" id="mail" placeholder="Ingrese su correo electronico">
-                    <input type="number" name="numero" id="numero" placeholder="Ingrese su numero">
-                    <textarea name="mensaje" id="mensaje" class="mensaje" cols="30" rows="1" placeholder="Déjenos algún mensaje"></textarea>
+                <form target="_blank" action="https://formsubmit.co/candela.molinari.t1vl@gmail.com" method="POST">
+                <input type="text" name="name" id="nombre" placeholder="Nombre completo" required>
+                    <input type="email" name="email" id="mail" placeholder="Correo electronico" required>
+                    <textarea placeholder="Mensaje" id="mensaje" class="mensaje" name="message" rows="10" required></textarea>
                     <div class="cont_btn">
                         <input type="submit" value="ENVIAR">
                     </div>
