@@ -4,17 +4,19 @@
 -   ...
 
 --Directivos
--   Update
--   Delete
--   Create
+-   Update (hecho)
+-   Delete (hecho)
+-   Create (hecho)
 
 --Especialidades
 -   Update
+-   Delete (hecho)
+-   Create (hecho)
 
 --Novedades
--   Update
--   Delete
--   Create
+-   Update (hecho)
+-   Delete (hecho)
+-   Create (hecho)
 
 --Campus
 -   ...
