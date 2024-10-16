@@ -1,0 +1,239 @@
+
+
+#directivos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 70vw;
+}
+
+#especialidades {
+    display: none;
+}
+
+.opciones {
+    margin-top: 2vh;
+}
+
+.opciones button {
+    margin-left: 10px;
+}
+
+.create_d {
+    display: none;
+}
+
+.update_d {
+    display: none;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.update_d form {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    overflow:auto;
+}
+
+.update_d label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.update_d input[type="text"],
+.update_d input[type="number"],
+.update_d input[type="url"],
+.update_d select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #007BFF; 
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    transition: border-color 0.3s, box-shadow 0.3s; 
+}
+
+.update_d input[type="text"]:focus,
+.update_d input[type="number"]:focus,
+.update_d input[type="url"]:focus,
+.update_d select:focus {
+    border-color: #0056b3; 
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.update_d input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.update_d input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+.update_d h2 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+.update_d * {
+    box-sizing: border-box;
+}
+
+
+
+
+.insert_d {
+    display: none;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.insert_d form {
+    display: flex;
+    flex-direction: column;
+}
+
+.insert_d label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.insert_d input[type="text"],
+.insert_d input[type="number"],
+.insert_d input[type="url"],
+.insert_d select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.insert_d input[type="text"]:focus,
+.insert_d input[type="number"]:focus,
+.insert_d input[type="url"]:focus,
+.insert_d select:focus {
+    border-color: #0056b3; 
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+
+.insert_d input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; 
+}
+
+.insert_d input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+.insert_d h2 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+
+.insert_d * {
+    box-sizing: border-box;
+}
+
+
+.delete_d {
+    display: none;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    width: 100%;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.form_delete {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_delete label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form_delete select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    transition: border-color 0.3s;
+}
+
+.form_delete select:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+.form_delete input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.form_delete input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.form_delete br {
+    margin-bottom: 10px;
+}
+
+.form_delete option {
+    color: #666;
+}
