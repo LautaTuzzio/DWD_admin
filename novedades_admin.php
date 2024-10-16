@@ -119,34 +119,34 @@
     </main>
 
     <script>
-        const insertBtnNov = document.getElementById('insertBtnNov');
-        const updateBtnNov = document.getElementById('updateBtnNov');
-        const deleteBtnNov = document.getElementById('deleteBtnNov');
+        const insertBtnNov = document.getElementById('insertBtnNov')
+        const updateBtnNov = document.getElementById('updateBtnNov')
+        const deleteBtnNov = document.getElementById('deleteBtnNov')
 
-        const insertNov = document.getElementById('insertNov');
-        const updateNov = document.getElementById('updateNov');
-        const deleteNov = document.getElementById('deleteNov');
+        const insertNov = document.getElementById('insertNov')
+        const updateNov = document.getElementById('updateNov')
+        const deleteNov = document.getElementById('deleteNov')
 
         function hideNovContent() {
-            insertNov.style.display = 'none';
-            updateNov.style.display = 'none';
-            deleteNov.style.display = 'none';
+            insertNov.style.display = 'none'
+            updateNov.style.display = 'none'
+            deleteNov.style.display = 'none'
         }
 
         insertBtnNov.addEventListener('click', function () {
-            hideNovContent();
-            insertNov.style.display = 'block';
-        });
+            hideNovContent()
+            insertNov.style.display = 'block'
+        })
 
         updateBtnNov.addEventListener('click', function () {
-            hideNovContent();
-            updateNov.style.display = 'block';
-        });
+            hideNovContent()
+            updateNov.style.display = 'block'
+        })
 
         deleteBtnNov.addEventListener('click', function () {
-            hideNovContent();
-            deleteNov.style.display = 'block';
-        });
+            hideNovContent()
+            deleteNov.style.display = 'block'
+        })
     </script>
 </body>
 

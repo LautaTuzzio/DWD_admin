@@ -227,33 +227,33 @@
             </div>
 </body>
 <script>
-        const updateBtn = document.getElementById('update-btn');
-        const deleteBtn = document.getElementById('delete-btn');
-        const insertBtn = document.getElementById('insert-btn');
+        const updateBtn = document.getElementById('update-btn')
+        const deleteBtn = document.getElementById('delete-btn')
+        const insertBtn = document.getElementById('insert-btn')
 
-        const updateSection = document.getElementById('update_d');
-        const deleteSection = document.getElementById('delete_d');
-        const insertSection = document.getElementById('insert_d');
+        const updateSection = document.getElementById('update_d')
+        const deleteSection = document.getElementById('delete_d')
+        const insertSection = document.getElementById('insert_d')
 
         function hideAllSections() {
-            updateSection.style.display = 'none';
-            deleteSection.style.display = 'none';
-            insertSection.style.display = 'none';
+            updateSection.style.display = 'none'
+            deleteSection.style.display = 'none'
+            insertSection.style.display = 'none'
         }
 
         updateBtn.addEventListener('click', function() {
-            hideAllSections();
-            updateSection.style.display = 'block';
-        });
+            hideAllSections()
+            updateSection.style.display = 'block'
+        })
 
         deleteBtn.addEventListener('click', function() {
-            hideAllSections();
-            deleteSection.style.display = 'block';
-        });
+            hideAllSections()
+            deleteSection.style.display = 'block'
+        })
 
         insertBtn.addEventListener('click', function() {
-            hideAllSections();
-            insertSection.style.display = 'block'; 
-        });
+            hideAllSections()
+            insertSection.style.display = 'block' 
+        })
     </script>
 </html>

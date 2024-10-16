@@ -56,33 +56,33 @@
     </main>
 
     <script>
-        const insertBtnEsp = document.getElementById('insertBtnEsp');
-        const updateBtnEsp = document.getElementById('updateBtnEsp');
-        const deleteBtnEsp = document.getElementById('deleteBtnEsp');
+        const insertBtnEsp = document.getElementById('insertBtnEsp')
+        const updateBtnEsp = document.getElementById('updateBtnEsp')
+        const deleteBtnEsp = document.getElementById('deleteBtnEsp')
 
-        const content1 = document.getElementById('content1');
-        const content2 = document.getElementById('content2');
-        const content3 = document.getElementById('content3');
+        const content1 = document.getElementById('content1')
+        const content2 = document.getElementById('content2')
+        const content3 = document.getElementById('content3')
 
         function hideAllContents() {
-            content1.style.display = 'none';
-            content2.style.display = 'none';
-            content3.style.display = 'none';
+            content1.style.display = 'none'
+            content2.style.display = 'none'
+            content3.style.display = 'none'
         }
 
         insertBtnEsp.addEventListener('click', function () {
-            hideAllContents();
-            content1.style.display = 'block';
-        });
+            hideAllContents()
+            content1.style.display = 'block'
+        })
 
         updateBtnEsp.addEventListener('click', function () {
-            hideAllContents();
-            content2.style.display = 'block';
-        });
+            hideAllContents()
+            content2.style.display = 'block'
+        })
 
         deleteBtnEsp.addEventListener('click', function () {
-            hideAllContents();
-            content3.style.display = 'block';
+            hideAllContents()
+            content3.style.display = 'block'
         });
     </script>
 </body>

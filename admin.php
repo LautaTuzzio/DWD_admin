@@ -26,26 +26,25 @@
         </div>
     </div>
     <script>
-    console.log("tes");
     
     document.getElementById('btn1').addEventListener('click', function() {
-        showSection('directivos');
-    });
+        showSection('directivos')
+    })
 
     document.getElementById('btn2').addEventListener('click', function() {
-        showSection('especialidades');
-    });
+        showSection('especialidades')
+    })
 
     document.getElementById('btn3').addEventListener('click', function() {
-        showSection('novedades');
-    });
+        showSection('novedades')
+    })
 
     function showSection(sectionId) {
-        document.getElementById('directivos').style.display = 'none';
-        document.getElementById('especialidades').style.display = 'none';
-        document.getElementById('novedades').style.display = 'none';
+        document.getElementById('directivos').style.display = 'none'
+        document.getElementById('especialidades').style.display = 'none'
+        document.getElementById('novedades').style.display = 'none'
         
-        document.getElementById(sectionId).style.display = 'block';
+        document.getElementById(sectionId).style.display = 'block'
     }
 </script>
 </body>
