@@ -14,7 +14,7 @@
         <nav>
             <form action="logout.php">
                 <ul>
-                    <li><button id="logoutBtn">Cerrar Sesión</button></li>
+                    <li><button class="button_top" id="logoutBtn">Cerrar Sesión</button></li>
                 </ul>
             </form>
         </nav>
@@ -43,6 +43,45 @@
                 </button>
             </div>
         </aside>
+        <script>
+            document.querySelectorAll('.button_top').forEach(button => {
+                button.addEventListener('click', function (e) {
+                    document.querySelectorAll('.button_top').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    e.target.classList.add('active');
+                });
+            });
+        </script>
+        <div class="default" id="default">
+            <div class="svg">
+                <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M4 12L10 6M4 12L10 18M4 12H14.5M20 12H17.5" stroke="#fff" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+            </div>
+            <h3 class="animated-text"></h3>
+        </div>
+
+        <script>
+            const text = "Elige una opción";
+            const container = document.querySelector('.animated-text');
+
+            text.split('').forEach(letter => {
+                const span = document.createElement('span');
+                if (letter === ' ') {
+                    span.textContent = '\u00A0'; 
+                    span.classList.add('space');
+                } else {
+                    span.textContent = letter;
+                }
+                container.appendChild(span);
+            });
+        </script>
         <div>
             <div id="directivos">
                 <div class="opciones">

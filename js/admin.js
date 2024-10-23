@@ -3,18 +3,24 @@ function show_directivos() {
     document.getElementById('directivos').style.display = 'flex';
     document.getElementById('especialidades').style.display = 'none';
     document.getElementById('novedades').style.display = 'none';
+    document.getElementById("default").style.display= "none"
+
 }
 
 function show_especialidades() {
     document.getElementById('directivos').style.display = 'none';
     document.getElementById('especialidades').style.display = 'flex';
     document.getElementById('novedades').style.display = 'none';
+    document.getElementById("default").style.display= "none"
+
 }
 
 function show_novedades() {
     document.getElementById('directivos').style.display = 'none';
     document.getElementById('especialidades').style.display = 'none';
     document.getElementById('novedades').style.display = 'flex';
+    document.getElementById("default").style.display= "none"
+
 }
 
 // Funciones para sección Directivos
