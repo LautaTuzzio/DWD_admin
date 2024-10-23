@@ -138,7 +138,7 @@ button:active .button_top {
 
 .update_d {
     display: none;
-    height: 700px;
+    height: 60vh;
     overflow-y: scroll;
     padding: 20px;
     background-color: #f9f9f9;
@@ -233,6 +233,8 @@ button:active .button_top {
     border-radius: 10px;
     max-width: 500px;
     margin: 20px auto;
+    overflow-y: scroll;
+    height:60vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -506,6 +508,8 @@ button:active .button_top {
     background-color: #f9f9f9;
     border-radius: 10px;
     max-width: 500px;
+    height:60vh;
+    overflow-y: scroll;
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
