@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $especialidad_id = $_POST['especialidad_id'];
 
     
-    $stmt = $conn->prepare("DELETE FROM especialidades WHERE id = ?");
-    $stmt->bind_param("i", $especialidad_id);
+    $stmt = $conn->prepare("DELETE FROM especialidad WHERE id = ?");
+    $stmt->bind_param("i", $autoridadId);
 
     if ($stmt->execute()) {
         echo "Registro eliminado con éxito.";

@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("i", $autoridadId);
 
     if ($stmt->execute()) {
+        echo "Registro eliminado con éxito.";
         header("Location: admin.php");
     } else {
         echo "Error al eliminar el registro: " . $stmt->error;
