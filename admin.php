@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ADMIN</title>
     <link rel="stylesheet" href="./css/admin.css">
 </head>
 
 <body>
     <header>
-        <div class="logo">Admin site</div>
+        <div class="logo">Panel de Admin</div>
         <nav>
             <form action="logout.php">
                 <ul>
@@ -47,9 +47,9 @@
             document.querySelectorAll('.button_top').forEach(button => {
                 button.addEventListener('click', function (e) {
                     document.querySelectorAll('.button_top').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    e.target.classList.add('active');
+                        btn.classList.remove('active')
+                    })
+                    e.target.classList.add('active')
                 });
             });
         </script>
@@ -68,33 +68,32 @@
         </div>
 
         <script>
-            const text = "Elige una opción";
-            const container = document.querySelector('.animated-text');
+            const text = "Elige una opción"
+            const container = document.querySelector('.animated-text')
 
             text.split('').forEach(letter => {
-                const span = document.createElement('span');
+                const span = document.createElement('span')
                 if (letter === ' ') {
-                    span.textContent = '\u00A0'; 
-                    span.classList.add('space');
+                    span.textContent = '\u00A0' 
                 } else {
-                    span.textContent = letter;
+                    span.textContent = letter
                 }
-                container.appendChild(span);
+                container.appendChild(span)
             });
         </script>
         <div>
             <div id="directivos">
                 <div class="opciones">
                     <button>
-                        <span class="button_top" onclick="show_update_d()"> Update </span>
+                        <span class="button_top" onclick="show_update_d()"> Actualizar </span>
                     </button>
 
                     <button>
-                        <span class="button_top" onclick="show_delete_d()"> Delete </span>
+                        <span class="button_top" onclick="show_delete_d()"> Eliminar </span>
                     </button>
 
                     <button>
-                        <span class="button_top" onclick="show_create_d()"> insert </span>
+                        <span class="button_top" onclick="show_create_d()"> Insertar </span>
                     </button>
                 </div>
 
@@ -306,15 +305,15 @@
             <div id="especialidades">
                 <div class="opciones">
                     <button>
-                        <span class="button_top" onclick="show_update_e()"> Update </span>
+                        <span class="button_top" onclick="show_update_e()"> Actualizar </span>
                     </button>
 
                     <button>
-                        <span class="button_top" onclick="show_delete_e()"> Delete </span>
+                        <span class="button_top" onclick="show_delete_e()"> Eliminar </span>
                     </button>
 
                     <button>
-                        <span class="button_top" onclick="show_create_e()"> insert </span>
+                        <span class="button_top" onclick="show_create_e()"> Insertar </span>
                     </button>
                 </div>
                 <div class="cambios">
@@ -445,15 +444,15 @@
             <div id="novedades">
                 <div class="opciones">
                     <button>
-                        <span class="button_top" onclick="show_update_n()"> Update </span>
+                        <span class="button_top" onclick="show_update_n()"> Actualizar </span>
                     </button>
 
                     <button>
-                        <span class="button_top" onclick="show_delete_n()"> Delete </span>
+                        <span class="button_top" onclick="show_delete_n()"> Eliminar </span>
                     </button>
 
                     <button>
-                        <span class="button_top" onclick="show_insert_n()"> insert </span>
+                        <span class="button_top" onclick="show_insert_n()"> Insertar </span>
                     </button>
                 </div>
                 <div class="cambios">
