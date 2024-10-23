@@ -10,11 +10,11 @@
 
 <body>
     <header>
-        <div class="logo">ADMIN</div>
+        <div class="logo">Admin site</div>
         <nav>
             <form action="logout.php">
                 <ul>
-                    <li><button class="button_top" id="logoutBtn">Cerrar Sesión</button></li>
+                    <li><button id="logoutBtn">Cerrar Sesión</button></li>
                 </ul>
             </form>
         </nav>
@@ -33,56 +33,16 @@
                     <span class="button_top" onclick=show_directivos()> Directivos </span>
                 </button>
 
-
                 <button>
                     <span class="button_top" onclick=show_especialidades()> Especialidades </span>
                 </button>
+
 
                 <button>
                     <span class="button_top" onclick=show_novedades()> Novedades </span>
                 </button>
             </div>
         </aside>
-
-        <script>
-            document.querySelectorAll('.button_top').forEach(button => {
-                button.addEventListener('click', function (e) {
-                    document.querySelectorAll('.button_top').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    e.target.classList.add('active');
-                });
-            });
-        </script>
-        <div class="default" id="default">
-            <div class="svg">
-                <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <path d="M4 12L10 6M4 12L10 18M4 12H14.5M20 12H17.5" stroke="#fff" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round"></path>
-                    </g>
-                </svg>
-            </div>
-            <h3 class="animated-text"></h3>
-        </div>
-
-        <script>
-            const text = "Elige una opción";
-            const container = document.querySelector('.animated-text');
-
-            text.split('').forEach(letter => {
-                const span = document.createElement('span');
-                if (letter === ' ') {
-                    span.textContent = '\u00A0'; 
-                    span.classList.add('space');
-                } else {
-                    span.textContent = letter;
-                }
-                container.appendChild(span);
-            });
-        </script>
         <div>
             <div id="directivos">
                 <div class="opciones">
@@ -306,47 +266,142 @@
 
             <div id="especialidades">
                 <div class="opciones">
-
-                    <button onclick="show_update_e()">
-                        <span class="button_top"> Update </span>
+                    <button>
+                        <span class="button_top" onclick="show_update_e()"> Update </span>
                     </button>
 
-                    <button onclick="show_delete_e()">
-                        <span class="button_top"> Delete </span>
+                    <button>
+                        <span class="button_top" onclick="show_delete_e()"> Delete </span>
                     </button>
 
-                    <button onclick="show_insert_e()">
-                        <span class="button_top"> insert </span>
+                    <button>
+                        <span class="button_top" onclick="show_create_e()"> insert </span>
                     </button>
                 </div>
-
                 <div class="cambios">
-                    <div class="insert_e update_d" id="insert_e">
-                        <form class="form_update" action="procesar_formulario.php" method="POST">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" required>
+                    <div class="insert_e" id="insert_e">
+                        <h2>Insertar Sección</h2>
+                        <br>
+                        <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $dbname = "sitio_web_institucional";
 
-                            <label for="descripcion">Descripción:</label>
-                            <textarea id="descripcion" name="descripcion" rows="4" cols="50" required></textarea>
-                            <br>
+                        $conn = new mysqli($servername, $username, $password, $dbname);
 
-                            <label for="especialidad">Especialidad:</label>
-                            <select id="especialidad" name="especialidad" required>
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+
+                        $sql_esp = "SELECT id, nombre FROM especialidades";
+                        $result_esp = $conn->query($sql_esp);
+                        ?>
+                        <form class="form_insert" action="insert_especialidades.php" method="POST">
+                            <label for="especialidad_id">ID especialidad:</label>
+                            <select name="especialidad_id" id="especialidad_id" required>
                                 <option value="">Seleccione una especialidad</option>
-                                <option value="programación">Programación</option>
-                                <option value="electrónica">Electrónica</option>
+                                <?php
+                                if ($result_esp->num_rows > 0) {
+                                    while ($row = $result_esp->fetch_assoc()) {
+                                        echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . "</option>";
+                                    }
+                                } else {
+                                    echo "<option value=''>No hay especialidades disponibles</option>";
+                                }
+                                ?>
                             </select>
 
-                            <button type="submit" class="btn">Guardar Especialidad</button>
+                            <label for="titulo">Título:</label>
+                            <input type="text" name="titulo" id="titulo" required>
+
+                            <label for="contenido">Contenido:</label>
+                            <textarea name="contenido" id="contenido" rows="4" required></textarea>
+
+                            <label for="orden">Orden:</label>
+                            <input type="number" name="orden" id="orden" required>
+
+                            <br>
+                            <input type="submit" value="Insertar">
                         </form>
                     </div>
                     <div class="update_e" id="update_e">
+                        <h2>Actualizar Sección</h2>
+                        <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $dbname = "sitio_web_institucional";
 
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+
+                        $sql_secciones = "SELECT id, titulo FROM secciones";
+                        $result_secciones = $conn->query($sql_secciones);
+
+                        $sql_esp = "SELECT id, nombre FROM especialidades";
+                        $result_esp = $conn->query($sql_esp);
+                        ?>
+                        <form class="form_update" action="update_especialidades.php" method="POST">
+                            <label for="seccion_id">Seleccione la sección a actualizar:</label>
+                            <select name="seccion_id" id="seccion_id" required>
+                                <?php
+                                if ($result_secciones->num_rows > 0) {
+                                    while ($row = $result_secciones->fetch_assoc()) {
+                                        echo "<option value='" . $row['id'] . "'>" . $row['titulo'] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+
+                            <label for="especialidad_id">Especialidad:</label>
+                            <select name="especialidad_id" id="especialidad_id" required>
+                                <?php
+                                if ($result_esp->num_rows > 0) {
+                                    while ($row = $result_esp->fetch_assoc()) {
+                                        echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+
+                            <label for="titulo">Título:</label>
+                            <input type="text" name="titulo" id="titulo" required>
+
+                            <label for="contenido">Contenido:</label>
+                            <textarea name="contenido" id="contenido" rows="4" required></textarea>
+
+                            <label for="orden">Orden:</label>
+                            <input type="number" name="orden" id="orden" required>
+
+                            <input type="submit" value="Actualizar">
+                        </form>
                     </div>
                     <div class="delete_e" id="delete_e">
-
+                        <h2>Eliminar Sección</h2>
+                        <?php
+                        $sql_secciones = "SELECT id, titulo FROM secciones";
+                        $result_secciones = $conn->query($sql_secciones);
+                        ?>
+                        <form class="form_delete" action="delete_especialidades.php" method="POST">
+                            <label for="seccion_id">Seleccione la sección a eliminar:</label>
+                            <select name="seccion_id" id="seccion_id" required>
+                                <?php
+                                if ($result_secciones->num_rows > 0) {
+                                    while ($row = $result_secciones->fetch_assoc()) {
+                                        echo "<option value='" . $row['id'] . "'>" . $row['titulo'] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                            <input type="submit" value="Eliminar">
+                        </form>
                     </div>
                 </div>
+
             </div>
             <div id="novedades">
                 <div class="opciones">
@@ -364,46 +419,32 @@
                 </div>
                 <div class="cambios">
                     <div class="update_n" id="update_n">
+                        <h2>Actualizar Novedad</h2>
                         <?php
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "sitio_web_institucional";
-
-                        $conn = new mysqli($servername, $username, $password, $dbname);
-
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-
-                        $sql = "SELECT id, titulo FROM novedades";
-                        $result = $conn->query($sql);
+                        $sql_novedades = "SELECT id, titulo FROM novedades";
+                        $result_novedades = $conn->query($sql_novedades);
                         ?>
                         <form class="form_update" action="update_novedades.php" method="POST">
-                            <label for="novedad">Elige una novedad para actualizar:</label>
-                            <select name="novedad_id" id="novedad" required>
+                            <label for="novedad_id">Seleccione la novedad a actualizar:</label>
+                            <select name="novedad_id" id="novedad_id" required>
                                 <?php
-                                if ($result->num_rows > 0) {
-                                    while ($row = $result->fetch_assoc()) {
+                                if ($result_novedades->num_rows > 0) {
+                                    while ($row = $result_novedades->fetch_assoc()) {
                                         echo "<option value='" . $row['id'] . "'>" . $row['titulo'] . "</option>";
                                     }
-                                } else {
-                                    echo "<option value=''>No hay opciones disponibles</option>";
                                 }
                                 ?>
                             </select>
-                            <br>
-                            <label for="titulo">Titulo:</label>
-                            <input type="text" id="titulo" name="titulo" required>
-                            <br><br>
+
+                            <label for="titulo">Título:</label>
+                            <input type="text" name="titulo" id="titulo" required>
 
                             <label for="texto">Texto:</label>
-                            <input type="text" id="texto" name="texto" required>
-                            <br><br>
+                            <textarea name="texto" id="texto" rows="4" required></textarea>
 
-                            <label for="imagen_url">Imagen:</label>
-                            <input type="text" id="imagen_url" name="imagen_url" required>
-                            <br><br>
+                            <label for="imagen">URL de la Imagen:</label>
+                            <input type="url" name="imagen" id="imagen" required>
+
                             <input type="submit" value="Actualizar">
                         </form>
                     </div>

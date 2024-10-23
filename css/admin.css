@@ -7,7 +7,6 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #344b68;
-    overflow-y: hidden;
 }
 
 header {
@@ -23,10 +22,6 @@ header {
 .logo {
     font-size: 1.5em;
     font-weight: bold;
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 nav ul {
@@ -48,28 +43,26 @@ nav ul li a:hover {
 main {
     display: flex;
     flex-direction: row;
-    
 }
-
 
 .botonera {
     display: flex;
     width: 20vw;
     justify-content: center;
-    background: linear-gradient(to top, #202f42 90%, #395676);
+    background-color: #202f42;
     height: 120vh;
 }
 
 .div-botonera {
     display: flex;
     flex-direction: column;
-
 }
 
 .div-botonera button {
     margin-top: 45px;
 }
-button{
+
+button {
     background-color: transparent;
     border: none;
 }
@@ -106,19 +99,14 @@ button:active .button_top {
     transform: translateY(0);
 }
 
-#directivos {
+/* Estilos compartidos para todas las secciones principales */
+#directivos, #especialidades, #novedades {
     display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 70vw;
+    width: 80vw;
 }
-
-#especialidades {
-    display: none;
-}
-
-
 
 .opciones {
     margin-top: 2vh;
@@ -128,105 +116,10 @@ button:active .button_top {
     margin-left: 10px;
 }
 
-
-
-
-.create_d {
-    display: none;
-}
-
-
-.update_d {
-    display: none;
-    height: 700px;
-    overflow-y: scroll;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    max-width: 500px;
-    margin: 20px auto;
-    box-shadow: 3px 19px 31px 10px rgba(32, 47, 66, 0.0);
-}
-
-::-webkit-scrollbar {
-    width: 6px;
-}
-  
-::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 10px;
-}
-  
-::-webkit-scrollbar-thumb {
-    background: #007BFF;
-    border-radius: 10px;
-}
-
-.update_d form {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-}
-
-.update_d label {
-    font-weight: bold;
-    color: #333;
-}
-
-.update_d input[type="text"],
-.update_d input[type="number"],
-.update_d input[type="url"],
-.update_d select {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #007BFF; 
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    transition: border-color 0.3s, box-shadow 0.3s; 
-}
-
-.update_d input[type="text"]:focus,
-.update_d input[type="number"]:focus,
-.update_d input[type="url"]:focus,
-.update_d select:focus {
-    border-color: #0056b3; 
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-.update_d input[type="submit"] {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.update_d input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-
-.update_d h2 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 20px;
-}
-
-.update_d * {
-    box-sizing: border-box;
-}
-
-
-
-
-.insert_d {
+/* Estilos compartidos para todos los formularios */
+.update_d, .update_e, .update_n,
+.insert_d, .insert_e, .insert_n,
+.delete_d, .delete_e, .delete_n {
     display: none;
     padding: 20px;
     background-color: #f9f9f9;
@@ -236,295 +129,31 @@ button:active .button_top {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-.insert_d form {
+/* Estilos para todos los formularios */
+.form_update, .form_insert, .form_delete {
     display: flex;
     flex-direction: column;
 }
 
-.insert_d label {
+/* Estilos para las etiquetas */
+.form_update label, .form_insert label, .form_delete label {
     margin-bottom: 8px;
     font-weight: bold;
     color: #333;
 }
 
-.insert_d input[type="text"],
-.insert_d input[type="number"],
-.insert_d input[type="url"],
-.insert_d select {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #007BFF;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.insert_d input[type="text"]:focus,
-.insert_d input[type="number"]:focus,
-.insert_d input[type="url"]:focus,
-.insert_d select:focus {
-    border-color: #0056b3; 
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
-}
-
-.insert_d input[type="submit"] {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s; 
-}
-
-.insert_d input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-
-.insert_d h2 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 20px;
-}
-
-
-.insert_d * {
-    box-sizing: border-box;
-}
-
-
-.delete_d {
-    display: none;
-    padding: 20px;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-    width: 100%;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-.form_delete {
-    display: flex;
-    flex-direction: column;
-}
-
-.form_delete label {
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-}
-
-.form_delete select {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #007BFF;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    transition: border-color 0.3s;
-}
-
-.form_delete select:focus {
-    border-color: #0056b3;
-    outline: none;
-}
-
-.form_delete input[type="submit"] {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.form_delete input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.form_delete br {
-    margin-bottom: 10px;
-}
-
-.form_delete option {
-    color: #666;
-}
-
-
-#novedades {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 70vw;
-}
-
-#insert_n, #update_n, #delete_n{
-    display: none;
-}
-
-
-.insert_n {
-    flex-direction: column;
-    padding: 20px;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-    max-width: 400px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form_insert {
-    display: flex;
-    flex-direction: column;
-}
-
-.form_insert label {
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-}
-
+/* Estilos para los inputs y selects */
+.form_update input[type="text"],
+.form_update input[type="number"],
+.form_update input[type="url"],
+.form_update select,
+.form_update textarea,
 .form_insert input[type="text"],
+.form_insert input[type="number"],
 .form_insert input[type="url"],
-.form_insert textarea {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #007BFF;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    transition: border-color 0.3s;
-    resize: none;
-}
-
-.form_insert input[type="text"]:focus,
-.form_insert input[type="url"]:focus,
-.form_insert textarea:focus {
-    border-color: #0056b3;
-    outline: none;
-}
-
-.form_insert input[type="submit"] {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.form_insert input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.form_insert br {
-    margin-bottom: 10px;
-}
-
-.delete_n {
-    flex-direction: column;
-    padding: 20px;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-    max-width: 400px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form_delete {
-    display: flex;
-    flex-direction: column;
-}
-
-.form_delete label {
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-}
-
+.form_insert select,
+.form_insert textarea,
 .form_delete select {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #007BFF;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    transition: border-color 0.3s;
-}
-
-.form_delete select:focus {
-    border-color: #0056b3;
-    outline: none;
-}
-
-.form_delete input[type="submit"] {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.form_delete input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.form_delete br {
-    margin-bottom: 10px;
-}
-
-.form_delete option {
-    color: #666;
-}
-
-
-.update_n {
-    display: none;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    max-width: 500px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.update_n form {
-    display: flex;
-    flex-direction: column;
-}
-
-.update_n label {
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-}
-
-.update_n input[type="text"],
-.update_n input[type="number"],
-.update_n input[type="url"],
-.update_n select {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #007BFF;
@@ -536,16 +165,23 @@ button:active .button_top {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.update_n input[type="text"]:focus,
-.update_n input[type="number"]:focus,
-.update_n input[type="url"]:focus,
-.update_n select:focus {
+/* Estilos para el focus de inputs y selects */
+.form_update input:focus,
+.form_update select:focus,
+.form_update textarea:focus,
+.form_insert input:focus,
+.form_insert select:focus,
+.form_insert textarea:focus,
+.form_delete select:focus {
     border-color: #0056b3;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-.update_n input[type="submit"] {
+/* Estilos para los botones submit */
+.form_update input[type="submit"],
+.form_insert input[type="submit"],
+.form_delete input[type="submit"] {
     background-color: #007BFF;
     color: white;
     padding: 10px 15px;
@@ -556,101 +192,21 @@ button:active .button_top {
     transition: background-color 0.3s;
 }
 
-.update_n input[type="submit"]:hover {
+.form_update input[type="submit"]:hover,
+.form_insert input[type="submit"]:hover,
+.form_delete input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-.update_n h2 {
+/* Estilos para los títulos de los formularios */
+h2 {
     text-align: center;
     color: #007BFF;
     margin-bottom: 20px;
 }
 
-.update_n * {
-    box-sizing: border-box;
+/* Estilos para los textareas */
+textarea {
+    min-height: 100px;
+    resize: vertical;
 }
-
-#especialidades{
-    width: 70vw;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.insert_e{
-    display: none;
-}
-
-.delete_e{
-    display: none;
-}
-
-.update_e{
-    display: none;
-}
-
-.active {
-    background-color: #007BFF;
-    color: white;
-    border: 2px solid white;
-}
-
-.default{
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    transform: translateY(-200px);
-    width: 100%;
-    gap: 6px;
-    color: white;
-}
-
-.svg{
-    animation: move 2s ease-in-out infinite;
-}
-
-@keyframes move{
-    0%{
-        transform: translateX(0px);
-    }
-    50%{
-        transform: translateX(-5px);
-    }
-    100%{
-        transform: translateX(0px);
-    }
-}
-
-.animated-text span {
-    display: inline-block;
-    animation: wave 2s infinite;
-}
-
-  .animated-text span:nth-child(1) { animation-delay: 0.0s; }
-  .animated-text span:nth-child(2) { animation-delay: 0.1s; }
-  .animated-text span:nth-child(3) { animation-delay: 0.2s; }
-  .animated-text span:nth-child(4) { animation-delay: 0.3s; }
-  .animated-text span:nth-child(5) { animation-delay: 0.4s; }
-  .animated-text span:nth-child(6) { animation-delay: 0.5s; }
-  .animated-text span:nth-child(7) { animation-delay: 0.6s; }
-  .animated-text span:nth-child(8) { animation-delay: 0.7s; }
-  .animated-text span:nth-child(9) { animation-delay: 0.8s; }
-  .animated-text span:nth-child(10) { animation-delay: 0.9s; }
-  .animated-text span:nth-child(11) { animation-delay: 1.0s; }
-  .animated-text span:nth-child(12) { animation-delay: 1.1s; }
-  .animated-text span:nth-child(13) { animation-delay: 1.2s; }
-  .animated-text span:nth-child(14) { animation-delay: 1.3s; }
-  .animated-text span:nth-child(15) { animation-delay: 1.6s; }
-
-  @keyframes wave {
-    0% {
-      color: white;
-    }
-    50% {
-      color: #007BFF;
-    }
-    100% {
-      color: white;
-    }
-  }

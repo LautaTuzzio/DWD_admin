@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2024 a las 21:08:59
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 17-10-2024 a las 01:47:20
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `user` varchar(33) NOT NULL,
   `password` varchar(16) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `admin`
@@ -55,7 +55,7 @@ CREATE TABLE `autoridades` (
   `años_activo` int(11) DEFAULT NULL,
   `id_trayectoria` int(11) DEFAULT NULL,
   `id_rol` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `autoridades`
@@ -89,7 +89,7 @@ CREATE TABLE `cursos` (
   `curso` varchar(10) DEFAULT NULL,
   `especialidad` text DEFAULT NULL,
   `fk_materia` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cursos`
@@ -244,7 +244,7 @@ CREATE TABLE `datosalumno` (
   `DNI` varchar(10) DEFAULT NULL,
   `Domicilio` varchar(50) DEFAULT NULL,
   `FechaNacimiento` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -261,7 +261,27 @@ CREATE TABLE `datostutor` (
   `DNI` varchar(10) DEFAULT NULL,
   `Domicilio` varchar(50) DEFAULT NULL,
   `FechaNacimiento` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `especialidades`
+--
+
+CREATE TABLE `especialidades` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `especialidades`
+--
+
+INSERT INTO `especialidades` (`id`, `nombre`, `descripcion`) VALUES
+(1, 'Programación', 'La carrera de programación se centra en la adquisición de habilidades para desarrollar software y aplicaciones informáticas.'),
+(2, 'Electrónica', 'La carrera de electrónica se enfoca en la electrónica y la tecnología de circuitos electrónicos.');
 
 -- --------------------------------------------------------
 
@@ -273,7 +293,7 @@ CREATE TABLE `imagenes` (
   `id_imagen` int(11) NOT NULL,
   `nombre_img` varchar(50) NOT NULL,
   `imagen` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `imagenes`
@@ -304,7 +324,7 @@ INSERT INTO `imagenes` (`id_imagen`, `nombre_img`, `imagen`) VALUES
 CREATE TABLE `materias` (
   `id_materia` int(11) NOT NULL,
   `materia` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `materias`
@@ -395,14 +415,7 @@ CREATE TABLE `novedades` (
   `titulo` varchar(50) NOT NULL,
   `texto` varchar(5000) NOT NULL,
   `imagen` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `novedades`
---
-
-INSERT INTO `novedades` (`id`, `titulo`, `texto`, `imagen`) VALUES
-(6, 'loco', 'cambio', 'https://www.google.com/url?sa=i&url=https%3A%2F%2F24ai.tech%2Fes%2Ftools%2Fhacer-imagen-cuadrada%2F&');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -416,7 +429,7 @@ CREATE TABLE `proyectos` (
   `descripcion` text NOT NULL,
   `imagen` text NOT NULL,
   `id_cursos` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -428,7 +441,7 @@ CREATE TABLE `rol_aut` (
   `id` int(11) NOT NULL,
   `rol` varchar(255) DEFAULT NULL,
   `rol_desc` varchar(600) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `rol_aut`
@@ -454,6 +467,39 @@ INSERT INTO `rol_aut` (`id`, `rol`, `rol_desc`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `secciones`
+--
+
+CREATE TABLE `secciones` (
+  `id` int(11) NOT NULL,
+  `especialidad_id` int(11) DEFAULT NULL,
+  `titulo` varchar(100) NOT NULL,
+  `contenido` text DEFAULT NULL,
+  `orden` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `secciones`
+--
+
+INSERT INTO `secciones` (`id`, `especialidad_id`, `titulo`, `contenido`, `orden`) VALUES
+(1, 1, 'Objetivos', 'Los estudiantes aprenden a programar en diferentes lenguajes de programación, como Javascript, Python, C++, entre otros. Se enfatiza la resolución de problemas, la lógica de programación y el diseño de algoritmos.', 1),
+(2, 1, 'Perfil académico del egresado', 'Los graduados están preparados para trabajar como programadores, desarrolladores de software o en roles relacionados en la industria de la tecnología.', 2),
+(3, 1, 'Estructura del plan de estudio', 'El plan de estudio se divide en módulos que cubren desde los fundamentos de la programación hasta técnicas avanzadas de desarrollo de software.', 3),
+(4, 1, 'Diseño y organización curricular', 'El currículum está diseñado para proporcionar una base sólida en programación y adaptarse a las tecnologías emergentes.', 4),
+(5, 1, 'Contenidos mínimos', 'Incluye algoritmos, estructuras de datos, paradigmas de programación, desarrollo web, bases de datos, y desarrollo de aplicaciones móviles.', 5),
+(6, 1, 'Proyectos realizados', 'Los estudiantes participan en proyectos prácticos que incluyen el desarrollo de aplicaciones web, móviles y de escritorio.', 6),
+(7, 2, 'Objetivos', 'Los estudiantes aprenden a diseñar, construir y reparar dispositivos electrónicos, circuitos y sistemas. Se enseñan conceptos de electrónica analógica y digital, así como también sistemas de control y automatización.', 1),
+(8, 2, 'Perfil académico del egresado', 'Los graduados están capacitados para trabajar en la industria de la electrónica, en mantenimiento de equipos electrónicos, desarrollo de circuitos y sistemas, o como técnicos de reparación de dispositivos electrónicos.', 2),
+(9, 2, 'Estructura del plan de estudio', 'El plan de estudio cubre desde los fundamentos de la electricidad y electrónica hasta sistemas avanzados de control y automatización.', 3),
+(10, 2, 'Diseño y organización curricular', 'El currículum está organizado para proporcionar una base sólida en teoría y práctica de la electrónica.', 4),
+(11, 2, 'Contenidos mínimos', 'Incluye circuitos eléctricos, electrónica digital y analógica, microcontroladores, sistemas embebidos, y automatización industrial.', 5),
+(12, 2, 'Proyectos realizados', 'Los estudiantes participan en proyectos prácticos que incluyen el diseño y construcción de circuitos, sistemas de control, y dispositivos electrónicos.', 6),
+(13, 2, 'test', 'test', 7);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `trayectoria`
 --
 
@@ -461,7 +507,7 @@ CREATE TABLE `trayectoria` (
   `id` int(11) NOT NULL,
   `trayectoria_laboral` varchar(1000) DEFAULT NULL,
   `trayectoria_educativa` varchar(1000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `trayectoria`
@@ -522,6 +568,12 @@ ALTER TABLE `datostutor`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indices de la tabla `especialidades`
+--
+ALTER TABLE `especialidades`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
@@ -551,6 +603,13 @@ ALTER TABLE `proyectos`
 --
 ALTER TABLE `rol_aut`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `secciones`
+--
+ALTER TABLE `secciones`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `especialidad_id` (`especialidad_id`);
 
 --
 -- Indices de la tabla `trayectoria`
@@ -593,6 +652,12 @@ ALTER TABLE `datostutor`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `especialidades`
+--
+ALTER TABLE `especialidades`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
@@ -608,13 +673,19 @@ ALTER TABLE `materias`
 -- AUTO_INCREMENT de la tabla `novedades`
 --
 ALTER TABLE `novedades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `secciones`
+--
+ALTER TABLE `secciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
@@ -638,6 +709,12 @@ ALTER TABLE `cursos`
 --
 ALTER TABLE `datostutor`
   ADD CONSTRAINT `datostutor_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `datosalumno` (`ID`);
+
+--
+-- Filtros para la tabla `secciones`
+--
+ALTER TABLE `secciones`
+  ADD CONSTRAINT `secciones_ibfk_1` FOREIGN KEY (`especialidad_id`) REFERENCES `especialidades` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
