@@ -10,7 +10,6 @@ body {
     overflow-y: hidden;
 }
 
-
 header {
     background-color: #395676;
     color: #fff;
@@ -55,7 +54,7 @@ main {
 .botonera {
     display: flex;
     overflow-y: none;
-    width: 20vw;
+    width: 20%;
     justify-content: center;
     background: linear-gradient(to top, #202f42 90%, #395676);
     height: 120vh;
@@ -113,7 +112,7 @@ button:active .button_top {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 80vw;
+    width: 83.3vw;
 }
 
 .opciones {
@@ -133,7 +132,7 @@ button:active .button_top {
     background-color: #f9f9f9;
     border-radius: 10px;
     max-width: 500px;
-    max-height: 60vh;
+    max-height: 70vh;
     overflow: auto;
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -322,7 +321,8 @@ textarea {
     display: flex; 
     justify-content: center;
     align-items: center;
-    transform: translateY(-200px);
+    margin: 0 auto;
+    height: 80vh;
     width: 100%;
     gap: 6px;
     color: white;

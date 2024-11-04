@@ -23,7 +23,7 @@
     <main>
         <?php
         session_start();
-        if ($_SESSION['status'] != "logued") /*buen ingles maxi*/ {
+        if ($_SESSION['status'] != "logued") {
             header("Location: index.php");
         }
         ?>
