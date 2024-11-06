@@ -61,6 +61,7 @@
 
 <script src="https://kit.fontawesome.com/45f45403cb.js" crossorigin="anonymous"></script>
 
+
 <?php
 function get_active($nombre){
     echo '<script>document.getElementById("'.$nombre.'").className = "nav active"; document.getElementById("'.$nombre.'2").className = "nav active";</script>';

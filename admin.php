@@ -52,6 +52,10 @@
                     e.target.classList.add('active')
                 });
             });
+
+            function confirmAction(message) {
+                return confirm(message);
+            }
         </script>
         <div class="default" id="default">
             <div class="svg">
@@ -184,7 +188,7 @@
                             </select>
                             <br><br>
 
-                            <input type="submit" value="Actualizar">
+                            <input type="submit" onclick="return confirmAction('Estas seguro de que quieres actualizar esta autoridad?')" value="Actualizar">
                         </form>
 
                     </div>
@@ -221,7 +225,7 @@
                                 ?>
                             </select>
                             <br><br>
-                            <input type="submit" value="Eliminar">
+                            <input type="submit" onclick="return confirmAction('Estas seguro de que quieres eliminar esta autoridad?')" value="Eliminar">
                         </form>
                     </div>
 
@@ -291,7 +295,7 @@
                                     ?>
                                 </select>
 
-                                <input type="submit" value="Insertar">
+                                <input type="submit" onclick="return confirmAction('Estas seguro de que quieres insertar esta autoridad?')" value="Insertar">
                             </form>
                         </div>
 
@@ -360,7 +364,7 @@
                             <input type="number" name="orden" id="orden" required>
 
                             <br>
-                            <input type="submit" value="Insertar">
+                            <input type="submit" onclick="return confirmAction('Estas seguro de que quieres insertar estos datos?')" value="Insertar">
                         </form>
                     </div>
                     <div class="update_e" id="update_e">
@@ -415,7 +419,7 @@
                             <label for="orden">Orden:</label>
                             <input type="number" name="orden" id="orden" required>
 
-                            <input type="submit" value="Actualizar">
+                            <input type="submit" onclick="return confirmAction('Estas seguro de que quieres actualizar estos datos?')" value="Actualizar">
                         </form>
                     </div>
                     <div class="delete_e" id="delete_e">
@@ -435,7 +439,7 @@
                                 }
                                 ?>
                             </select>
-                            <input type="submit" value="Eliminar">
+                            <input type="submit" onclick="return confirmAction('Estas seguro de que quieres eliminar estaos datos?')" value="Eliminar">
                         </form>
                     </div>
                 </div>
@@ -483,7 +487,7 @@
                             <label for="imagen">URL de la Imagen:</label>
                             <input type="url" name="imagen" id="imagen" required>
 
-                            <input type="submit" value="Actualizar">
+                            <input type="submit" onclick="return confirmAction('Estas seguro de que quieres actualizar esta novedad?')" value="Actualizar">
                         </form>
                     </div>
 
@@ -520,7 +524,7 @@
                                 ?>
                             </select>
                             <br>
-                            <input type="submit" value="Borrar">
+                            <input type="submit" onclick="return confirmAction('Estas seguro de que quieres eliminar esta novedad?')" value="Borrar">
                         </form>
                     </div>
 
@@ -539,7 +543,7 @@
                             <input type="url" name="imagen" id="imagen" required>
 
                             <br>
-                            <input type="submit" value="Insertar">
+                            <input type="submit" onclick="return confirmAction('Estas seguro de que quieres insertar esta novedad?')" value="Insertar">
                         </form>
                     </div>
                 </div>

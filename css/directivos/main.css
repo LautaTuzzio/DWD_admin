@@ -18,13 +18,13 @@
     gap: 10px;
 }
 .cont_presentacion .cont_linea .linea1{
-    background-color: var(--colorLinea);
+    background-color: #202f42;
     width: 70px;
     height: 8px;
     border-radius: 10px;
 }
 .cont_presentacion .cont_linea .linea2{
-    background-color: var(--colorLinea);
+    background-color: #202f42;
     width: 50px;
     height: 8px;    
     border-radius: 10px;
@@ -86,17 +86,17 @@
     justify-content: space-between;
 }
 .informacion .titulo span:first-child{
-    background-color: rgba(209, 209, 209, 0.849);
+    background-color: #202f42;
     width: calc(100% - 80% - 70px);
     height: 6px;
 }
 .informacion .titulo span:last-child{
-    background-color: rgba(209, 209, 209, 0.849);
+    background-color: #202f42;
     width: calc(60% - 150px);
     height: 6px;
 }
 .informacion .cargo{
-    border-left: 7px solid rgba(209, 209, 209, 0.849);
+    border-left: 7px solid #202f42;
     padding-left: 50px;
     font-weight: bolder;
     font-size: 1.2rem;
@@ -115,12 +115,12 @@
     left: -30px;
 }
 .contenedor_carta.reverse .informacion .titulo span:first-child{
-    background-color: rgba(209, 209, 209, 0.849);
+    background-color: #202f42;
     width: calc(60% - 150px);
     height: 6px;
 }
 .contenedor_carta.reverse .informacion .titulo span:last-child{
-    background-color: rgba(209, 209, 209, 0.849);
+    background-color: #202f42;
     width: calc(100% - 80% - 70px);
     height: 6px;
 }

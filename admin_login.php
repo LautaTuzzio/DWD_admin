@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOG IN</title>
+    <title>Ingresar</title>
     <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
     <div class="container">
         <div class="login-form">
-            <h2>LOG IN</h2>
+            <h2>Ingresar</h2>
             <form action="login_check.php" method="POST">
                 <div class="input-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Your username" required>
+                    <label for="username">Nombre</label>
+                    <input type="text" id="username" name="username" placeholder="Tu nombre" required>
                 </div>
                 <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Your Password" required>
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Tu contraseña" required>
                 </div>
-                <button type="submit" class="btn">Log In</button>
+                <button type="submit" class="btn">Ingresar</button>
             </form>
         </div>
         <div class="image-section">
